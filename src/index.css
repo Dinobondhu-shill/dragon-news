@@ -8,3 +8,9 @@
 .font-poppins{
   font-family: "Poppins", sans-serif;
 }
+#leftnav a.active{
+  background-color: #E7E7E7;
+  color: black;
+  font-weight: 600;
+  font-size: 20px;
+}

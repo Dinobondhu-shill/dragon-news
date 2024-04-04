@@ -4,8 +4,13 @@ import { FaEye } from "react-icons/fa";
 
 const News = ({news}) => {
   const [read, setRead] =useState(400);
+  const [toggle, setToggle] =useState(false)
   const handleReadMore =()=>{
+    setToggle(!toggle)
     setRead(details.length)
+    if(toggle===true){
+      setRead(400)
+    }
   }
   const {category_id, rating,total_view,author, title, image_url, details} = news
   return (
@@ -26,8 +31,11 @@ const News = ({news}) => {
       <div className="px-3 mt-7">
       <h2 className="font-bold text-xl mb-5" >{title}</h2>
       <img src={image_url} alt="" />
-      <p className="mt-8">{details.slice(0,read)}
-      <a onClick={handleReadMore} className="text-yellow-300 ml-4 font-bold cursor-pointer">Read More</a></p> <hr />
+      <p className="mt-8 pb-4">{details.slice(0,read)} <br />
+      {
+        details.length> read && <a onClick={handleReadMore} className="text-yellow-300 font-bold cursor-pointer">Read More</a>
+      }
+      </p> <hr />
       <div className="flex items-center justify-between my-4">
         <div className="flex gap-2 items-center">
         <CiStar className="text-yellow-500 text-lg"></CiStar>
